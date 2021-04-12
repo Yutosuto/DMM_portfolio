@@ -70,10 +70,13 @@ gem 'kaminari', '~> 1.2.1'
 #フレームワーク調整
 gem 'bootstrap', '~>4.6'
 gem 'jquery-rails'
-gem 'font-awesome-rails'
+gem 'font-awesome-sass'
 
 #環境変数化
-gem 'dotenv-rails', '~>2.7.6'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
 
 #画像投稿
 gem "refile", require: "refile/rails", github: 'manfe/refile'
