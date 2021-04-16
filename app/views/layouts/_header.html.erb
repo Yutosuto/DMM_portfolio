@@ -11,8 +11,8 @@
               <% if user_signed_in? %>
                 <li class="text-light" style="margin-top:8px;">ようこそ、<%= current_user.name %>さん！</li>
                 <li><%= link_to ' FAQよくある質問',homes_about_path,class: 'nav-link text-light' %></li>
-                <li><%= link_to ' 投稿一覧',posts_path,class: 'nav-link text-light' %></li>
-                <li><%#= link_to ' マイページ',post_user_path,class: 'nav-link text-light'%></li>
+                <li><%= link_to ' 投稿する',new_post_path,class: 'nav-link text-light' %></li>
+                <li><%#= link_to ' マイページ',user_path,class: 'nav-link text-light'%></li>
                 <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'nav-link text-light' %></li>
               <% elsif admin_signed_in? %>
                 <li><%= link_to ' 投稿一覧',posts_path,class: 'nav-link text-light' %></li>

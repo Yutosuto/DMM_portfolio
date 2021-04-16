@@ -1,12 +1,10 @@
-class User::PostsController < ApplicationController
+class PostsController < ApplicationController
 
   before_action :authenticate_user!,except:[:top, :about]
 
 #投稿一覧
   def index
     @posts = Post.all
-    @post = Post.new
-    @user = current_user
   end
 
   #投稿詳細
@@ -21,18 +19,17 @@ class User::PostsController < ApplicationController
    @user = Post.find(params[:id])
   end
 
-  #投稿
+  #新規投稿
+  def new
+    @post = Post.new
+  end
+
+  #投稿データの保存
   def create
    @post = Post.new(post_params)
    @post.user_id = current_user.id
-   if @post.save
-     false[:success] = '投稿しました'
-     redirect_to post_path(@post)
-   else
-     @posts = Post.all
-     @user = current_user
-     render 'index'
-   end
+   @post.save
+   redirect_to posts_path
   end
 
   #投稿更新
@@ -52,4 +49,9 @@ class User::PostsController < ApplicationController
     redirect_to posts_path
   end
 
+private
+
+  def post_params
+    params.require(:post).permit(:taitle, :body, :image)
+  end
 end

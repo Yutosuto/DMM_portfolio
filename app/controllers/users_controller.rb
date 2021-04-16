@@ -4,6 +4,8 @@ class User::UsersController < ApplicationController
 
   #会員マイページ
   def show
+    @user = User.find(params[:id])
+    @post = Post.all
   end
 
   #会員情報編集

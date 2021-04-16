@@ -8,12 +8,10 @@ Rails.application.routes.draw do
 
 #homes
   root 'homes#top'
-  get "homes/about" => "user/homes#about"
+  get "homes/about" => "homes#about"
 
 #users
- resources :posts, only: [:index, :show, :edit, :create, :update, :destroy] do
- resources :post_images, only: [:new, :create, :index, :show, :destroy]
+ resources :posts, only: [:index, :show, :edit, :create, :update, :destroy, :new]
  resources :users, only: [:show, :edit, :update]
  resources :favorites, only: [:create, :destroy]
- end
 end

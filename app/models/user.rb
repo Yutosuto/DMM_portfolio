@@ -7,7 +7,6 @@ class User < ApplicationRecord
   has_many :posts
   has_many :post_comments
   has_many :favorites
-  has_many :post_images
   attachment :profile_image, destroy: false
 
   validates :name,length: {maximum: 20, minimum: 2}, uniqueness: true
