@@ -13,11 +13,40 @@
  *= require_tree .
  *= require_self
  */
-
+/*@import "bootstrap-sprockets";*/
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
 .content{
   min-height: 570px;
+}
+
+.footer{
+  background-color: dark;
+  position: absolite;
+  bottom: 0;
+}
+
+.rogo{
+  width: 50px;
+  height: 50px;
+}
+
+body {
+  /* 画像ファイルの指定 */
+  background-color: #bee0e0;
+  margin: 0;
+}
+
+.title{
+  text-align: center;
+  font-size: 100px;
+  margin-top: 200px;
+  color:#B0ADA4;
+}
+
+.box1{
+  text-align: center;
+  max-width: 200%;
 }

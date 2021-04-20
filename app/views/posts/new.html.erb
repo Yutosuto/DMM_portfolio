@@ -1,10 +1,34 @@
-<h1>投稿フォーム</h1>
-<%= form_with model: @post, local:true do |f| %>
-  <h4>画像</h4>
-  <%= f.attachment_field :image %>
-  <h4>タイトル</h4>
-  <%= f.text_field :title %>
-  <h4>説明</h4>
-  <%= f.text_area :body %>
-  <%= f.submit '投稿' %>
-<% end %>
+<div class = "container">
+  <div class = "row" >
+    <div style="margin-top : 20px">
+     <h2>新規投稿<i class="new-post"></i></h2><br>
+    </div>
+
+    <div class = col-md-9 ><br>
+        <%= form_with model:@post, local:true do |f| %>
+
+      <form>
+        <div style="margin-top : 100px">
+          <div class="image-field">
+            <h4><%= f.label :投稿画像 ,class: "col-md-4" %>
+              <%= f.attachment_field :image, class:"col-md-7"%></h4>
+          </div>
+
+          <div class="name-field">
+            <h4><%= f.label :タイトル ,class: "col-md-4" %>
+            <%= f.text_field :title, autofocus: true, autocomplete: "name" ,placeholder:"タイトル",class: "col-md-7"%></h4>
+          </div>
+          <div class="description-field">
+            <h4><%= f.label :本文 ,class: "col-md-4" %>
+            <%= f.text_area :body, autofocus: true, autocomplete: "introduction" , placeholder:"ここに説明を記述します", class: "col-md-7"%></h4>
+          </div>
+
+          </div>
+          <div class="text-center">
+            <%= f.submit "新規登録" ,class: "btn btn-primary"%>
+          <% end %>
+        </form>
+     </div>
+    </div>
+  </div>
+ </div>

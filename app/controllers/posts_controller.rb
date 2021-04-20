@@ -5,12 +5,15 @@ class PostsController < ApplicationController
 #投稿一覧
   def index
     @posts = Post.all
+    @post = Post.new
+    @user = current_user
   end
 
   #投稿詳細
   def show
     @post = Post.find(params[:id])
     @post_comment = PostComment.new
+    @posts_comments = PostComment.all
   end
 
   #投稿編集
@@ -52,6 +55,6 @@ class PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:taitle, :body, :image)
+    params.require(:post).permit(:title, :body, :image)
   end
 end

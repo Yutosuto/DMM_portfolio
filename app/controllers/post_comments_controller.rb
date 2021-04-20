@@ -4,8 +4,8 @@ class User::PostCommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @post_comment = BookComment.new(post_comment_params)
-    @post_comment.post_id = @book.id
+    @post_comment = PostComment.new(post_comment_params)
+    @post_comment.post_id = @post.id
     @post_comment.user_id = current_user.id
     unless @post_comment.save
       render 'error'
@@ -14,7 +14,7 @@ class User::PostCommentsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-     post_comment = @post.post.post_comment.find(params[:id])
+     post_comment = @post.post.post_comments.find(params[:id])
      post_comment.destroy
   end
 

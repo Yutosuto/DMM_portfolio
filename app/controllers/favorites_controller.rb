@@ -1,4 +1,4 @@
-class User::FavoritesController < ApplicationController
+class FavoritesController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
@@ -11,7 +11,4 @@ class User::FavoritesController < ApplicationController
     favorite = @post.favorites.find_by(user_id: current_user.id)
     favorite.destroy
   end
-  
-  
-
 end

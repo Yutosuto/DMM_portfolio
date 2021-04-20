@@ -69,6 +69,7 @@ gem 'kaminari', '~> 1.2.1'
 
 #フレームワーク調整
 gem 'bootstrap', '~>4.6'
+gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'jquery'
 gem 'slick'
