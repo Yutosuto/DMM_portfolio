@@ -1,46 +1,41 @@
 <div class="container" >
     <div class="row" >
-        <div class="col-md-4">
+        <div class="col-md-5">
             <div style="margin-top : 20px">
-                <div style="margin-left : 90px">
+                <div style="margin-left : 0px">
                  <h2>投稿詳細<i class="fas fa-search"></i></h2>
                 </div>
             </div>
             <div style="margin-top : 50px">
+              <div style="margin-left : 100px">
              <%= attachment_image_tag @post, :image, :size => "250x200", fallback: "" %>
+             <h6 class="favorite-btn"><%= render "favorites/favorites-btn", post: @post %></h6>
+              </div>
             </div>
         </div>
         <div class="col-md-2">
              <div style="margin-top : 100px">
              <div class="name-field"></div>
              <h6 class="show-title">タイトル</h6>
-             <h6 style="margin-bottom:70px;">本文</h6>
+             <h6 style="margin-top:30px;">本文</h6>
+             <%= button_to '戻る', posts_path, method: :get, class: "btn btn-success", style: "margin-top: 200px" %>
              </div>
         </div>
-        <div class="col-md-6">
-             <div style="margin-top : 100px">
+        <div class="col-md-5">
+            <div style="margin-top : 100px">
              <h6 class="show-title"><%= @post.title %></h6>
-             <h6 style="margin-bottom:70px;"><%= @post.body %></h6>
-             <h6 class="favorite-btn"><%= render "favorites/favorites-btn", post: @post %></h6>
+             <h6 style="margin-top:30px;"><%= @post.body %></h6>
+　　　　　　　<p>コメント件数：<%= @post.post_comments.count %></p>
+              <% @post.post_comments.each do |post_comment| %>
+              　<%= post_comment.user.name %>
+              　<%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+              <% end %>
+              　<%= form_with(model:[@post, @post_comment], local: true) do |f| %>
+              　<%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %></br>
+              　<%= f.submit "送信する", class: "btn btn-success" %>
+              <% end %>
              </div>
         </div>
-        <div class="comments">
-             <p>コメント件数：<%= @post.post_comments.count %></p>
-              <% @post.post_comments.each do |post_comment| %>
-              <%= post_comment.user.name %>
-              <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-              <% end %>
-        </div>
-              <div class="new-comment">
-              <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-              <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
-              <%= f.submit "送信する" %>
-              <% end %>
         </div>
     </div>
-    <div class="row">
-        <div class="offset-md-5 col-md-5 ">
-            <%= button_to '戻る', posts_path, method: :get, class: "btn btn-success" %>
-        </div>
-    </div>
-</div>
+  </div>

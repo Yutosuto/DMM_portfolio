@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     favorite = @post.favorites.new(user_id: current_user.id)
-    favorite.save
+    favorite.save!
   end
 
   def destroy

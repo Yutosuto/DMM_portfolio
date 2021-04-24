@@ -72,7 +72,7 @@ gem 'bootstrap', '~>4.6'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'jquery'
-gem 'slick'
+# gem 'slick'
 gem 'font-awesome-sass'
 
 #環境変数化

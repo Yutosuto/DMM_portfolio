@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
      :name,
      :telephone_number,
      :address,
-     :profile_image_id
+     :profile_image
      ])
   end
 

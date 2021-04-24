@@ -1,4 +1,4 @@
-class User::PostCommentsController < ApplicationController
+class PostCommentsController < ApplicationController
 
  before_action :authenticate_user!
 
@@ -21,5 +21,5 @@ class User::PostCommentsController < ApplicationController
   private
   def post_comment_params
     params.require(:post_comment).permit(:comment)
-  end 
+  end
 end

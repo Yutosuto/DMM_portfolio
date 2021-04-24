@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html>
+
   <head>
-    <title>Shares</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -15,12 +14,12 @@
      <%= yield %>
    </div>
 
-   <footer>
-       <p>シェアハウスが気になるあなたへ</P>
-       <p>shares</p>
-      <%#ul class="rogo">
-          <li><img src="images/rogo.jpg" alt=""></li>%>
-      </ul>
+   <footer id="footer">
+    <small>&copy; copyright.</small>
    </footer>
-  </body>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+<script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-1-14/js/5-1-14.js"></script>
+</body>
 </html>

@@ -1,30 +1,37 @@
-      <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-          <div class="container">
-            <a class="navbar-brand" href="/"><h1>shares</h1></a>
-            <%#img src="/assets/rogo.jpg" alt=""%>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-              <ul class="navbar-nav ml-auto">
-              <% if user_signed_in? %>
-                <li class="text-light" style="margin-top:8px;">ようこそ、<%= current_user.name %>さん！</li>
-                <li><%= link_to ' FAQよくある質問',homes_about_path,class: 'nav-link text-light' %></li>
-                <li><%= link_to ' 投稿する',new_post_path,class: 'nav-link text-light' %></li>
-                <li><%#= link_to ' マイページ',user_path,class: 'nav-link text-light'%></li>
-                <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'nav-link text-light' %></li>
-              <% elsif admin_signed_in? %>
-                <li><%= link_to ' 投稿一覧',posts_path,class: 'nav-link text-light' %></li>
-                <li><%= link_to ' 会員一覧',admin_customers_path,class: 'nav-link text-light' %></li>
-                <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %></li>
-              <% else %>
-                <li><%= link_to ' About',homes_about_path,class: 'nav-link text-light' %></li>
-                <li><%= link_to ' 新規登録', new_user_registration_path,class: 'nav-link text-light' %></li>
-                <li><%= link_to ' ログイン', new_user_session_path ,class: 'nav-link text-light'%></li>
-              <% end %>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
+<link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-1-14/css/5-1-14.css">
+<body>
+  <header id="header">
+    <h1>shares</h1>
+  </header>
+
+<div class="openbtn1"><span></span><span></span><span></span></div>
+  <nav id="g-nav">
+   <div id="g-nav-list">
+      <ul>
+        <% if user_signed_in? %>
+            <li class="text-light" style="margin-top:8px;">ようこそ、<%= current_user.name %>さん！</li>
+            <li><%= link_to ' Topに戻る',root_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' 問合せはこちら',homes_about_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' 投稿する',new_post_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' みんなの投稿',posts_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' マイページ',user_path(current_user.id),class: 'nav-link text-light'%></li>
+            <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'nav-link text-light' %></li>
+        <% elsif admin_signed_in? %>
+        　　<li><%= link_to ' Topに戻る',root_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' 投稿一覧',posts_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' 会員一覧',admin_customers_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' ログアウト', destroy_admin_session_path, method: :delete,class: 'nav-link text-light' %></li>
+        <% else %>
+        　　<li><%= link_to ' Topに戻る',root_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' 問合せはこちら',homes_about_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' 新規登録', new_user_registration_path,class: 'nav-link text-light' %></li>
+            <li><%= link_to ' ログイン', new_user_session_path ,class: 'nav-link text-light'%></li>
+        <% end %>
+      </ul>
+    </div>
+ </nav>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="  crossorigin="anonymous"></script>
+  <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/5-1-14/js/5-1-14.js"></script>
+</body>
+
