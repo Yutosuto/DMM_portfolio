@@ -1,22 +1,38 @@
-<div class="showtitle", style="margin-top:60px">マイページ<i class="fas fa-user-circle"></i></div>
-  <div class="profile-container", style="margin-top:30px">
-   <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no-image.jpg" %>
-  </div>
-  <div class="font-weight-bold" style="margin-bottom:50px;">
-    <div style="margin-top:50px"></div>
-   　　<h3>■名前</h3>
-   　　<h5><%= current_user.name %></h5>
-   　　<h3>■メールアドレス</3>
-   　　<h5><%= current_user.email %></h5>
-   　　<h3>■投稿一覧</h3>
-   　　<% @posts.each do |post| %>
-   　　<h5><%= link_to post.title, post_path(post) %></h5>
-   　<%= link_to '削除する', post_path(post), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn--orange btn--cubic btn--shadow"%>
-   　  <% end %>
-  </div>
-</div>
-<div class="edit-btn">
-    <%= link_to '編集する', edit_user_path(@user), class: "btn btn-sm btn-success" %></td>
-</div>
+<div class="showtitle", style="margin-top:60px">Mypage<i class="fas fa-user-circle"></i></div>
+      <div class="profile-container", style="margin-top:30px">
+           <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, format: 'jpeg', fallback: "no-image.jpg" %>
+      </div>
+      <div class="font-weight-bold" style="margin-bottom:10px;">
+        <div style="margin-top:10px"></div>
+       　　<h3>Name</h3>
+       　　<h5><%= current_user.name %></h5>
+       　　<h3>Email</3>
+       　　<h5><%= current_user.email %></h5>
+       　　<div class="edit-btn">
+            <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-sm" %></td>
+          </div>
+       　　<h3>PostIndex</h3>
+      </div>
+
+      <div class="row">
+        <% @posts.each do |post| %>
+            <div id="post_<%= post.id %>" class="col-md-2" >
+                <div class="postline">
+
+                   <%= attachment_image_tag post, :image, :size => "150x150", fallback: "" %></br>
+                   <%= link_to post.title, post_path(post)%></br>
+                   <%= post.body %></br>
+                   <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %>
+                       <%= link_to(
+                               content_tag(:i, nil, class: 'far fa-trash-alt'),
+                               post_path(post),
+                               method: :delete,
+                               data: { confirm: '本当に削除しますか？' }) %>
+                   </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+
 
           <%#= paginate @post_images %>

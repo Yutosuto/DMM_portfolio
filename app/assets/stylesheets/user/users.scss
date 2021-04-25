@@ -25,3 +25,33 @@ a.btn--shadow {
 img.attachment.user.profile_image{
   border-radius: 50%;
 }
+
+.font-weight-bold{
+  h3{
+    font-family: cursive !important;
+  }
+}
+
+.show_list{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.user_edit_title{
+  font-size: 25px;
+  font-family: Courier;
+}
+
+.edit_ok{
+    margin-bottom: 50px;
+    border: 2px solid #000;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: 4px 4px 0 #000;
+    width: 100px;
+    height: 40px;
+    font-siza: 20px !important;
+    font-family: cursive;
+    text-align: center;
+    margin-left: 325px;
+}

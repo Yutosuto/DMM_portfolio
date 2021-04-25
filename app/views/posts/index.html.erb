@@ -37,9 +37,9 @@
         </div>
 
 <div class="posttitle">PostIndex</div>
-    <div class="post_list">
+    <div class="row">
         <% @posts.each do |post| %>
-            <div id="post_<%= post.id %>" class="post_card" >
+            <div id="post_<%= post.id %>" class="col-md-2" >
                 <div class="postline">
                    <%= attachment_image_tag(post.user, :profile_image, :fill, 50, 50,format: 'jpeg', fallback: "no-image.jpg") %></br>
                    <%= post.user.name %></br>

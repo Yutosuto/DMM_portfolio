@@ -37,10 +37,12 @@ body {
 
 .title{
   text-align: center;
-  font-size: 100px;
+  font-size: 120px;
   margin-top: 200px;
   color:#B0ADA4;
   animation-duration: 1.5s;
+  font-family: cursive;
+
 }
 
 .box1{
@@ -174,7 +176,8 @@ small{
 }
 
 #header{
-  width:100%;
+  width: 100%;
+  height: 70px !important;
   background:#333;
   color:#fff;
   text-align: center;
@@ -216,6 +219,15 @@ form {
 
 .edit-btn{
   margin-bottom: 50px;
+  border: 2px solid #000;
+  border-radius: 0;
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 0 #000;
+  box-shadow: 4px 4px 0 #000;
+  width: 100px;
+  height: 40px;
+  font-siza: 20px !important;
+  font-family: cursive;
   text-align: center;
 }
 
@@ -228,3 +240,39 @@ form {
   margin-bottom: 50px;
 }
 
+.logintitle{
+  margin-top: 100px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.new_field{
+  text-align: center;
+  margin-top: 20px;
+  .new_field2{
+    width: 300px;
+    border-radius: 6px;
+    border: 2px solid #bbbbbb;
+  }
+}
+
+.login_btn{
+  text-align: center;
+  margin-top: 20px;
+    .btn.btn-border{
+      border: 2px solid #000;
+      border-radius: 0;
+      background: #fff;
+
+        .btn-border:hover {
+        color: #fff;
+        background: #000;
+        }
+
+     }
+}
+
+.new_link{
+  text-align: center;
+  margin-top: 30px;
+}

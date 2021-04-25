@@ -1,20 +1,28 @@
-<div class="Mwnu" style="margin-top:60px">会員情報変更画面</div>
-<%= form_with model: @user, local: true do |f| %>
-<div class="row my-3">
-  <%= f.label "名前", class: "col-2" %>
-  <%= f.text_field :name, autofocus: true, placeholder:"名前", class: "form-control col-4", style: "margin-right:40px;" %>
-</div>
-<div class="row my-3">
-  <%= f.label :email, "メールアドレス",class: "col-2" %>
-  <%= f.email_field :email, autofocus: true, placeholder:"メールアドレス", class: "form-control col-4" %>
-</div>
-<div class="row my-3">
-  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no-image.jpg"%></br>
-  <label for="inputImage">プロフィール画像</label>
-  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", style:"background-color: transparent" %>
-</div>
+<div class="user_edit_title" style="margin-top:60px">Edit My Page</div>
+  <%= form_with model: @user, local: true do |f| %>
+    <div class="row my-3">
+      <div class="profile_edit_image">
+        <%= attachment_image_tag @user, :profile_image, :fill, 150, 150, fallback: "no-image.jpg"%></br>
+      </div>
+    </div>
+    <div class="row my-3">
+        <%= f.label "Image", class: "col-2" %>
+        <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", style:"background-color: transparent" %>
+    </div>
 
-<div class="row my-3">
-  <%= f.submit "編集内容を保存" ,class: 'btn-lg btn-sm btn-success offset-2 col-3' %>
-</div>
-<% end %>
+    <div class="row my-3">
+        <%= f.label "Name", class: "col-2" %>
+        <%= f.text_field :name, autofocus: true, placeholder:"名前", class: "form-control col-4", style: "margin-right:40px;" %>
+    </div>
+
+    <div class="row my-3">
+      <%= f.label :Mailaddres, "",class: "col-2" %>
+      <%= f.email_field :Email, autofocus: true, placeholder:"メールアドレス", class: "form-control col-4" %>
+    </div>
+
+    <div class="row my-3">
+      <div class="edit_ok">
+        <%= f.submit "OK" ,class: 'btn-lg btn-sm' %>
+      </div>
+    </div>
+  <% end %>
