@@ -241,7 +241,7 @@ form {
 }
 
 .logintitle{
-  margin-top: 100px;
+  margin-top: 80px;
   font-size: 30px;
   text-align: center;
 }
@@ -276,3 +276,26 @@ form {
   text-align: center;
   margin-top: 30px;
 }
+
+.signup_title{
+  margin-top: 80px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.signup{
+  text-align: center;
+  margin-top: 20px;
+
+  .signupfield{
+   width: 300px;
+   border: 2px solid #bbbbbb;
+
+  }
+}
+
+.signupfield2{
+     width: 300px;
+     margin-left: 30px;
+}
+
