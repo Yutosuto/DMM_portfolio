@@ -4,10 +4,11 @@ class PostsController < ApplicationController
 
 #投稿一覧
   def index
-    @posts = Post.all
+    #@posts = Post.all
     @post = Post.new
     @user = current_user
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
+    @posts = Post.page(params[:page]).per(6)
   end
 
   #投稿詳細

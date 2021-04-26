@@ -1,42 +1,45 @@
 <div class="show_title">PostDetails</div>
     <div class="row">
         <div class="col-md-6">
-            <%= attachment_image_tag @post, :image, :size => "250x250", fallback: "no-image.jpg" %>
-            <div class="favorite-btn"><%= render "favorites/favorites-btn", post: @post %></div>
-            <div class="show-title">Title</div>
-            <div class="show-title2">
-                <%= @post.title %>
+            <div class="postshowimage">
+                <%= attachment_image_tag @post, :image, :size => "250x250", fallback: "no-image.jpg" %>
             </div>
+                <div class="post_<%= @post.id %>"><%= render "favorites/favorites-btn", post: @post %></div>
+                <div class="show-title">Title</div>
+                <div class="show-title2">
+                    <%= @post.title %>
+                </div>
 
-            <div class="show-body">Text</div>
-            <div class="show-body2">
-                <%= @post.body %>
-            </div>
+                <div class="show-body">Text</div>
+                <div class="show-body2">
+                    <%= @post.body %>
+                </div>
 
-            <div class="commentitle">Comment</div>
-            <div class="commentfield">
-                <%= form_with(model:[@post, @post_comment], local: true) do |f| %>
-                <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %></br>
-                <%= f.submit "送信する", class: "btn btn-success" %>
-                <% end %>
-            </div>
-                <%= button_to '戻る', posts_path, method: :get, class: "btn btn-success" %>
+                <div class="commentitle">Comment</div>
+                    <%= form_with(model:[@post, @post_comment], remote: true) do |f| %>
+                <div class="commentfield">
+                    <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %></br>
+                </div>
+                    <%= f.submit "送信する", class: "btn-btn-success" %>
+                    <% end %>
+                    <%= button_to '戻る', posts_path, method: :get, class: "btn-btn-success" %>
        </div>
-            <div class="col-md-6">
-                　<p>コメント件数：<%= @post.post_comments.count %></p>
-                  <% @post.post_comments.each do |post_comment| %>
-                      <div class="commentuser">
-                          <%= post_comment.user.name %>
-                      </div>
-                      <div class="commenttime">
-                          <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-                          <%= link_to(
-                               content_tag(:i, nil, class: 'far fa-trash-alt'),
-                               post_post_comment_path(post_comment),
-                               method: :delete,
-                               data: { confirm: '本当に削除しますか？' }) %>
-                      </div>
-                  <% end %>
+                <div class="col-md-6">
+                    　<p>コメント件数：<%= @post.post_comments.count %></p>
+                      <% @post.post_comments.each do |post_comment| %>
+                          <div class="commentuser">
+                             <%= post_comment.user.name %>
+                          </div>
+                          <div class="commenttime">
+                              <%= post_comment.created_at.strftime('%Y/%m/%d') %></br>
+                              <%= post_comment.comment %>
+                              <%= link_to(
+                                   content_tag(:i, nil, class: 'far fa-trash-alt'),
+                                   post_post_comment_path(@post, post_comment),
+                                   method: :delete,
+                                   data: { confirm: '本当に削除しますか？' }) %>
+                          </div>
+                      <% end %>
            </div>
     </div>
 </div>

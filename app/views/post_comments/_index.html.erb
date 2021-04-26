@@ -9,7 +9,7 @@
   	</td>
   	<td><%= post_comment.comment %></td>
   	<% if current_user == post_comment_user %>
-    	<td><%= link_to 'Destroy', post_comment_path(post_comment.post_id, post_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
+    	<td><%= link_to 'Destroy', post_post_comment_path(post_comment.post_id, post_comment.id), class: 'btn-sm btn-danger', method: :delete, remote: true %></td>
   	<% end %>
   </tr>
 <% end %>

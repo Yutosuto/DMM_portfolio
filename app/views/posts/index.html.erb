@@ -11,6 +11,8 @@
             <li><img src="assets/image2.jpg" alt=""></li>
             <li><img src="assets/image3.jpg" alt=""></li>
             <li><img src="assets/image4.jpg" alt=""></li>
+            <li><img src="assets/image5.jpg" alt=""></li>
+            <li><img src="assets/image6.jpg" alt=""></li>
        </ul>
        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
        <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/js/6-1-7.js"></script>
@@ -27,9 +29,9 @@
                        <%= attachment_image_tag post, :image, :size => "150x150", fallback: "" %></br>
                        <%= link_to post.title, post_path(post)%></br>
                        <%= post.body %></br>
-                       <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %>
-                         コメント数: <%= @post.post_comments.count %>
-                         <%#= link_to '削除', post_path(post), method: :delete, class:"btn-btn-sm btn-danger" %>
+                       <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %></div>
+                       <div class="comment2">
+                           コメント数: <%= @post.post_comments.count %>
                        </div>
                     </div>
                </div>
@@ -46,15 +48,17 @@
                    <%= attachment_image_tag post, :image, :size => "150x150", fallback: "" %></br>
                    <%= link_to post.title, post_path(post)%></br>
                    <%= post.body %></br>
-                   <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %>
-                     コメント数: <%= @post.post_comments.count %>
-                     <%#= link_to '削除', post_path(post), method: :delete, class:"btn-btn-sm btn-danger" %>
+                   <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %></div>
+                   <div class="comment2">
+                           コメント数: <%= @post.post_comments.count %>
                    </div>
                 </div>
             </div>
         <% end %>
     </div>
+</div>
+<div class="page">
+    <%= paginate @posts %>
+</div>
 
 
-<footer>
-</footer>
