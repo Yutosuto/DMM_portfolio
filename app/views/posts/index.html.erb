@@ -1,4 +1,5 @@
 <head>
+       <%#= スライダー機能　%>
        <meta charset="utf-8">
        <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/reset.css">
@@ -6,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/css/6-1-7.css">
 </head>
 <body>
+       <%#= スライダー画像　%>
        <ul class="slider">
            <%= image_tag asset_path("image1.jpg") %>
            <%= image_tag asset_path("image2.jpg") %>
@@ -17,7 +19,7 @@
        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
        <script src="https://coco-factory.jp/ugokuweb/wp-content/themes/ugokuweb/data/6-1-7/js/6-1-7.js"></script>
 </body>
-
+      <%#= ランキング機能　%>
 　    <div class="ranktitle">Rankingu</div>
 　     <div class="post_rank">
  　        <% @all_ranks.each.with_index(1) do |post, i| %>
@@ -29,7 +31,9 @@
                        <%= attachment_image_tag post, :image, :size => "150x150", fallback: "" %></br>
                        <%= link_to post.title, post_path(post)%></br>
                        <%= post.body %></br>
+                       <%#= いいね機能　%>
                        <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %></div>
+                       <%#= コメント件数機能　%>
                        <div class="comment2">
                            コメント数: <%= @post.post_comments.count %>
                        </div>
@@ -40,6 +44,7 @@
 
 <div class="posttitle">PostIndex</div>
     <div class="row">
+        <%#　投稿一覧表示　%>
         <% @posts.each do |post| %>
             <div id="post_<%= post.id %>" class="col-md-2" >
                 <div class="postline">
@@ -48,7 +53,9 @@
                    <%= attachment_image_tag post, :image, :size => "150x150", fallback: "" %></br>
                    <%= link_to post.title, post_path(post)%></br>
                    <%= post.body %></br>
+                   <%# いいね機能　%>
                    <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %></div>
+                   <%# コメント件数　%>
                    <div class="comment2">
                            コメント数: <%= @post.post_comments.count %>
                    </div>
@@ -57,6 +64,7 @@
         <% end %>
     </div>
 </div>
+<%# ページング　%>
 <div class="page">
     <%= paginate @posts %>
 </div>

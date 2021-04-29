@@ -6,12 +6,14 @@
         <%= form_with model:@post, local:true do |f| %>
 
       <form>
+        <%# 画像投稿 %>
         <div style="margin-top : 30px">
           <div class="image-postfield">
             <h4><%= f.label :Postimage ,class: "col-md-6" %></br>
               <%= f.attachment_field :image, class:"col-md-6", style:"background-color: transparent" %></h4>
           </div>
-
+          
+          <%#タイトル・本文記載表示　%>
           <div class="name-field">
             <h4><%= f.label :Title ,class: "col-md-4" %></br>
             <%= f.text_field :title, autofocus: true, autocomplete: "name" ,placeholder:"タイトル",class: "col-md-7"%></h4>
