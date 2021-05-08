@@ -8,7 +8,8 @@ class PostsController < ApplicationController
     @post = Post.new
     @user = current_user
     @all_ranks = Post.find(Favorite.group(:post_id).order('count(post_id) desc').limit(3).pluck(:post_id))
-    @posts = Post.page(params[:page]).per(6)
+    @new_posts = Post.limit(6).order(" created_at DESC ")
+    @posts = Post.page(params[:page]).per(12)
   end
 
   #投稿詳細

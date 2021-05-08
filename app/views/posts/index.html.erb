@@ -42,6 +42,29 @@
           <% end %>
         </div>
 
+        <%#新着投稿表示 %>
+        <div class="new_post_title">NewPost</div>
+        <div class="row">
+             <% @new_posts.each.with_index(1) do |post, i| %>
+                  <div id="post_<%= post.id %>" class="col-md-2" >
+                        <div class="postline">
+                           <%= attachment_image_tag(post.user, :profile_image, :fill, 50, 50,format: 'jpeg', fallback: "no-image.jpg") %></br>
+                           <%= post.user.name %></br>
+                           <%= attachment_image_tag post, :image, :size => "150x150", fallback: "" %></br>
+                           <%= link_to post.title, post_path(post)%></br>
+                           <%= post.body %></br>
+                           <%#= いいね機能　%>
+                           <div class="post_<%= post.id %>"><%= render "favorites/favorites-btn", post: post %></div>
+                           <%#= コメント件数機能　%>
+                           <div class="comment2">
+                               コメント数: <%= @post.post_comments.count %>
+                           </div>
+                        </div>
+                   </div>
+              <% end %>
+         </div>
+
+
 <div class="posttitle">PostIndex</div>
     <div class="row">
         <%#　投稿一覧表示　%>
